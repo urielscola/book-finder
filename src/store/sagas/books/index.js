@@ -16,6 +16,23 @@ export function* getBooks({ payload }) {
   }
 }
 
+export function* loadMoreBooks({ payload: { title, step, page } }) {
+  try {
+    const nextPage = page + 1;
+    const startIndex = step * nextPage;
+    const { data } = yield call(BooksService.list, { q: title, startIndex });
+    const items = data.totalItems ? data : { items: [] };
+    yield put(
+      BooksActions.loadMoreBooksSuccess({ items: items.items, page: nextPage })
+    );
+  } catch (err) {
+    yield put(BooksActions.getBooksFailure);
+  }
+}
+
 export default function* booksSaga() {
-  yield all([takeLatest(BooksTypes.GET_BOOKS, getBooks)]);
+  yield all([
+    takeLatest(BooksTypes.GET_BOOKS, getBooks),
+    takeLatest(BooksTypes.LOAD_MORE_BOOKS, loadMoreBooks)
+  ]);
 }

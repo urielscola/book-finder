@@ -7,13 +7,19 @@ import DisplayList from '../../components/DisplayList';
 import { Box } from '../../components/Box';
 import { TABS } from '../../constants/nav';
 
-const Home = ({ list, searchTerm, loading, ...props }) => {
-  console.log(props);
+const Home = ({ list, searchTerm, loading, step, page, loadMoreBooks }) => {
   return (
     <div>
       <Tabs items={TABS} />
       <Box>
-        <DisplayList title={searchTerm} loading={loading} books={list} />
+        <DisplayList
+          title={searchTerm}
+          loading={loading}
+          books={list}
+          loadMoreBooks={loadMoreBooks}
+          step={step}
+          page={page}
+        />
       </Box>
     </div>
   );
@@ -27,5 +33,8 @@ export default compose(
 Home.propTypes = {
   list: PropTypes.array.isRequired,
   searchTerm: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  loadMoreBooks: PropTypes.func.isRequired,
+  step: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired
 };

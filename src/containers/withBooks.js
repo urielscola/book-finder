@@ -9,7 +9,9 @@ const mapStateToProps = state => ({
   list: getList(state),
   loading: state.books.loading,
   error: state.books.error,
-  detail: state.books.detail
+  detail: state.books.detail,
+  page: state.books.page,
+  step: state.books.step
 });
 
 const mapDispatchToProps = dispatch =>
