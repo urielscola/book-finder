@@ -1,6 +1,9 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import { DesktopBreakpoint } from '../../../Responsive';
 import { SearchIcon } from '../../../Icons';
+import ButtonLink from '../../../ButtonLink';
+
 import { Container, Form, SubmitButton, Input } from './styles';
 
 const SearchForm = ({ placeholder, onSubmit, onChange, value }) => {
@@ -16,6 +19,9 @@ const SearchForm = ({ placeholder, onSubmit, onChange, value }) => {
         <SubmitButton type="submit">
           <SearchIcon size={20} />
         </SubmitButton>
+        <DesktopBreakpoint>
+          <ButtonLink orange to="/favorites" label="Favoritos" />
+        </DesktopBreakpoint>
       </Form>
     </Container>
   );

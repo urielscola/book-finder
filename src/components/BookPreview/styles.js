@@ -3,6 +3,15 @@ import styled from 'styled-components/macro';
 export const Container = styled.article`
   width: 47%;
   margin-bottom: 25px;
+  cursor: pointer;
+
+  @media (min-width: 767px) {
+    width: 23%;
+  }
+
+  @media (min-width: 992px) {
+    width: 15%;
+  }
 `;
 
 export const BookPrewiewImage = styled.div`
@@ -12,6 +21,18 @@ export const BookPrewiewImage = styled.div`
     width: 100%;
     min-height: 230px;
     object-fit: cover;
+  }
+
+  @media (min-width: 767px) {
+    img {
+      min-height: 250px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    img {
+      min-height: 250px;
+    }
   }
 `;
 

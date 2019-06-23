@@ -2,12 +2,25 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.div`
   position: relative;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    max-width: 700px;
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 992px) {
+    justify-content: flex-end;
+
+    > button {
+      margin-right: 10px;
+    }
+  }
 `;
 
 export const SubmitButton = styled.button`

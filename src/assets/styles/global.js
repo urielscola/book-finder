@@ -68,6 +68,7 @@ export const GlobalStyles = createGlobalStyle`
   [type="button"],
   [type="reset"],
   [type="submit"] {
+    cursor: pointer;
     -webkit-appearance: button;
   }
 
@@ -113,6 +114,12 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-file-upload-button {
     -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   figure {

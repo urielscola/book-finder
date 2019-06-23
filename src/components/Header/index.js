@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { compose } from 'redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SearchForm from './partials/SearchForm';
-import { Container } from './styles';
+import { Container, Logo } from './styles';
 
 import withFilters from '../../containers/withFilters';
 
@@ -16,6 +17,14 @@ const Header = ({ setSearchTerm }) => {
   };
   return (
     <Container>
+      <Logo>
+        <Link to="/">
+          <img
+            src="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png"
+            alt="Play livros"
+          />
+        </Link>
+      </Logo>
       <SearchForm
         onSubmit={handleFormSubmit}
         placeholder="Pesquisar no Play Livros"

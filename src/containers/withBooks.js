@@ -20,10 +20,6 @@ const mapDispatchToProps = dispatch =>
 
 export default function withBooks(Composed) {
   class withBooksComponent extends PureComponent {
-    componentDidMount() {
-      this.props.getBooks('O poder do hábito');
-    }
-
     render() {
       return <Composed {...this.props} />;
     }

@@ -5,6 +5,7 @@ const breakpoints = {
   desktop: '(min-width: 992px)',
   tablet: '(min-width: 768px)',
   phone: '(max-width: 767px)',
+  mobile: '(max-width: 992px)'
 };
 
 const Breakpoint = props => (
@@ -23,7 +24,11 @@ export const PhoneBreakpoint = props => (
   <Breakpoint name="phone">{props.children}</Breakpoint>
 );
 
-const getWidth = _ => window.innerWidth;
+export const MobileBreakpoint = props => (
+  <Breakpoint name="mobile">{props.children}</Breakpoint>
+);
+
+const getWidth = () => window.innerWidth;
 export const isMobile = () => getWidth() < 768;
 export const isTablet = () => getWidth() < 992;
 export const isDesktop = () => getWidth() >= 992;

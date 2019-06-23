@@ -1,7 +1,16 @@
 import React from 'react';
 import { BookIcon, HeartIcon } from '../components/Icons';
 
-export const CATEGORIES = ['ReactJS', 'Javascript', 'NodeJS', 'Redux'];
+export const CATEGORIES = [
+  'ReactJS',
+  'Javascript',
+  'NodeJS',
+  'Redux',
+  'Angular',
+  'ExpressJS',
+  'Redis',
+  'CSS'
+];
 
 export const TABS = [
   {

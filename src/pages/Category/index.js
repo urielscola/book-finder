@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { withBooks, withFilters } from '../../containers';
@@ -8,15 +8,22 @@ import Sidebar from '../../components/Sidebar';
 import { PageContainer, Box } from '../../components/Grid';
 import { TABS } from '../../constants/nav';
 
-const Home = ({
+const Category = ({
   list,
   searchTerm,
   loading,
   step,
   page,
   loadMoreBooks,
-  lastItem
+  lastItem,
+  setSearchTerm,
+  ...props
 }) => {
+  useEffect(() => {
+    const { categoryId } = props.match.params;
+    setSearchTerm(categoryId);
+  }, [props.match.params, setSearchTerm]);
+
   return (
     <PageContainer>
       <Sidebar />
@@ -39,14 +46,15 @@ const Home = ({
 export default compose(
   withFilters,
   withBooks
-)(Home);
+)(Category);
 
-Home.propTypes = {
+Category.propTypes = {
   list: PropTypes.array.isRequired,
   searchTerm: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   loadMoreBooks: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
-  lastItem: PropTypes.bool.isRequired
+  lastItem: PropTypes.bool.isRequired,
+  setSearchTerm: PropTypes.func.isRequired
 };
