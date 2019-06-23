@@ -64,8 +64,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "CI=true react-scripts test",
-      "post-commit": "CI=true npm run build && npm run deploy"
+      "pre-commit": "cross-env CI=true react-scripts test && npm run deploy"
     }
   }
 }
