@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     font-size: 16px;
     font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   body {
@@ -113,6 +113,10 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-file-upload-button {
     -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
+  }
+
+  figure {
+    margin: 0;
   }
 
   [hidden] {

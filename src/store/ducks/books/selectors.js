@@ -4,9 +4,11 @@ const parseBooks = book => {
   return {
     id: book.id,
     title: volumeInfo.title,
-    unavailable: saleInfo.saleability === 'NOT_FOR_SALE',
+    available: saleInfo.saleability === 'FOR_SALE',
+    price: saleInfo.listPrice ? saleInfo.listPrice.amount * 100 : null,
+    salePrice: saleInfo.retailPrice ? saleInfo.retailPrice.amount * 100 : null,
     link: selfLink,
-    authors: volumeInfo.authors,
+    authors: volumeInfo.authors || [],
     description: volumeInfo.description,
     image: volumeInfo.imageLinks
       ? volumeInfo.imageLinks.thumbnail

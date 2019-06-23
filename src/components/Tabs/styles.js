@@ -4,15 +4,20 @@ import { NavLink } from 'react-router-dom';
 export const Container = styled.section`
   width: 100%;
   display: flex;
-  border-bottom: 1px solid ${({ theme }) => theme.fontSecundary};
+  border-bottom: 1px solid #cccccc;
 `;
 
 export const TabItem = styled(NavLink)`
   flex-grow: 1;
+  width: 50%;
   cursor: pointer;
   text-align: center;
-  padding: 10px 0;
-  color: ${({ theme }) => theme.fontSecundary};
+  padding: 15px 0;
+  background-color: ${({ theme }) => theme.lightBlue};
+  color: ${({ theme }) => theme.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   svg {
     margin-right: 5px;
@@ -20,7 +25,7 @@ export const TabItem = styled(NavLink)`
 
   &.active {
     font-weight: 700;
-    border-bottom: 2px solid ${({ theme }) => theme.blue};
-    color: ${({ theme }) => theme.blue};
+    background-color: ${({ theme }) => theme.orange};
+    border-bottom: 4px solid #de8938;
   }
 `;

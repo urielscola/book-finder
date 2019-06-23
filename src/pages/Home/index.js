@@ -1,22 +1,31 @@
 import React from 'react';
+import { compose } from 'redux';
+import PropTypes from 'prop-types';
+import { withBooks, withFilters } from '../../containers';
 import Tabs from '../../components/Tabs';
-import Categories from '../../components/Categories';
-import Display from '../../components/Display';
+import DisplayList from '../../components/DisplayList';
 import { Box } from '../../components/Box';
-import withBooks from '../../containers/withBooks';
-import { TABS, CATEGORIES } from '../../constants/nav';
+import { TABS } from '../../constants/nav';
 
-const Home = ({ list, ...props }) => {
+const Home = ({ list, searchTerm, loading, ...props }) => {
   console.log(props);
   return (
     <div>
       <Tabs items={TABS} />
       <Box>
-        <Categories items={CATEGORIES} />
-        <Display books={list} />
+        <DisplayList title={searchTerm} loading={loading} books={list} />
       </Box>
     </div>
   );
 };
 
-export default withBooks(Home);
+export default compose(
+  withFilters,
+  withBooks
+)(Home);
+
+Home.propTypes = {
+  list: PropTypes.array.isRequired,
+  searchTerm: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired
+};

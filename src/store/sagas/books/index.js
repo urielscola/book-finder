@@ -8,10 +8,9 @@ import {
 
 export function* getBooks({ payload }) {
   try {
-    const { data } = yield call(BooksService.list, payload);
-    if (data.totalItems) {
-      yield put(BooksActions.getBooksSuccess(data));
-    }
+    const { data } = yield call(BooksService.list, { q: payload });
+    const items = data.totalItems ? data : { items: [] };
+    yield put(BooksActions.getBooksSuccess(items));
   } catch (err) {
     yield put(BooksActions.getBooksFailure);
   }

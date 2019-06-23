@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
-import SearchInput from './partials/SearchInput';
+import SearchForm from './partials/SearchForm';
 import { Container } from './styles';
 
 import withFilters from '../../containers/withFilters';
 
-const Header = ({ setSearchTerm, searchTerm }) => {
-  const handleInputChange = value => value && setSearchTerm(value);
+const Header = ({ setSearchTerm }) => {
+  const [localSearchTerm, setLocalSearchTerm] = useState('');
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    if (!localSearchTerm) return;
+    setLocalSearchTerm('');
+    setSearchTerm(localSearchTerm);
+  };
   return (
     <Container>
-      <SearchInput
+      <SearchForm
+        onSubmit={handleFormSubmit}
         placeholder="Pesquisar no Play Livros"
-        onChange={handleInputChange}
-        value={searchTerm}
+        onChange={value => setLocalSearchTerm(value)}
+        value={localSearchTerm}
       />
     </Container>
   );
@@ -22,6 +29,5 @@ const Header = ({ setSearchTerm, searchTerm }) => {
 export default compose(withFilters)(Header);
 
 Header.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
   setSearchTerm: PropTypes.func.isRequired
 };

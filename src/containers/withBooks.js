@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch =>
 export default function withBooks(Composed) {
   class withBooksComponent extends PureComponent {
     componentDidMount() {
-      this.props.getBooks({ q: 'Guia do mochileiro das galáxias' });
+      this.props.getBooks('O poder do hábito');
     }
 
     render() {

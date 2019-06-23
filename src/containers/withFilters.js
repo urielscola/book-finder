@@ -13,6 +13,10 @@ const mapDispatchToProps = dispatch =>
 
 export default function withFilters(Composed) {
   class withFiltersComponent extends PureComponent {
+    componentDidMount() {
+      this.props.setSearchTerm('reactjs');
+    }
+
     render() {
       return <Composed {...this.props} />;
     }
