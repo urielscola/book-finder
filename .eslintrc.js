@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": ["eslint:recommended", "airbnb", "prettier", "prettier/react", "plugin:import/warnings"],
     "globals": {
@@ -21,6 +22,8 @@ module.exports = {
     ],
     "rules": {
         "react/forbid-prop-types": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/prefer-default-export": 0,
         "react/jsx-filename-extension": 0,
         "react/react-in-jsx-scope": 0,
         "class-methods-use-this": 0,
