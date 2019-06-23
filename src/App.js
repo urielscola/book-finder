@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components/macro';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles, theme } from './assets/styles';
 import Routes from './routes';
+import Header from './components/Header';
 import store from './store';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
           <>
             <GlobalStyles />
             <div className="App">
+              <Header />
               <Routes />
             </div>
           </>

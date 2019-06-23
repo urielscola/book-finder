@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     font-size: 16px;
     font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-    font-family: 'Source Sans Pro';
+    font-family: 'Roboto', sans-serif;
   }
 
   body {

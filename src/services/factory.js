@@ -10,7 +10,7 @@ export default ({ instance, config, resourceName }) => ({
 
     return instance({
       method: 'GET',
-      url: `${BASE_API_URL}${resourceName}${query}`,
+      url: `${BASE_API_URL}${resourceName}${query}&key=AIzaSyB5Tf0XgAGqVuww04BAdmE9NeJjP5z39ek`,
       headers
     });
   },

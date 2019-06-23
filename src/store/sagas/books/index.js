@@ -9,7 +9,9 @@ import {
 export function* getBooks({ payload }) {
   try {
     const { data } = yield call(BooksService.list, payload);
-    yield put(BooksActions.getBooksSuccess(data));
+    if (data.totalItems) {
+      yield put(BooksActions.getBooksSuccess(data));
+    }
   } catch (err) {
     yield put(BooksActions.getBooksFailure);
   }

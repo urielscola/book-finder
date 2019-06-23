@@ -32,7 +32,7 @@ export default function books(state = INITIAL_STATE, { type, payload }) {
     case Types.GET_BOOKS_SUCCESS:
       return {
         ...state,
-        list: [...state.list, ...payload.items],
+        list: payload.items,
         loading: false
       };
     case Types.GET_BOOKS_FAILURE:
@@ -41,11 +41,3 @@ export default function books(state = INITIAL_STATE, { type, payload }) {
       return state;
   }
 }
-
-/* {
-  favorites: [],  
-  filter: {
-    searchTerm: '',
-    activeCategory: '',
-  },
-} */

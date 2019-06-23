@@ -3,7 +3,7 @@ const colors = {
   fontSecundary: '#555555',
   white: '#fff',
   offWhite: '#f9f9f9',
-  blue: '#365DF0',
+  blue: '#7f99fb',
   green: '#12DB89',
   red: '#F95E5A',
   yellow: '#FFBB43',
