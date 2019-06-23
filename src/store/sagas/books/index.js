@@ -21,10 +21,13 @@ export function* loadMoreBooks({ payload: { title, step, page } }) {
     const nextPage = page + 1;
     const startIndex = step * nextPage;
     const { data } = yield call(BooksService.list, { q: title, startIndex });
-    const items = data.totalItems ? data : { items: [] };
-    yield put(
-      BooksActions.loadMoreBooksSuccess({ items: items.items, page: nextPage })
-    );
+    if (data.items) {
+      yield put(
+        BooksActions.loadMoreBooksSuccess({ items: data.items, page: nextPage })
+      );
+    } else {
+      yield put(BooksActions.loadMoreBooksFinish());
+    }
   } catch (err) {
     yield put(BooksActions.getBooksFailure);
   }

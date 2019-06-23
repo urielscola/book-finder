@@ -7,7 +7,15 @@ import DisplayList from '../../components/DisplayList';
 import { Box } from '../../components/Box';
 import { TABS } from '../../constants/nav';
 
-const Home = ({ list, searchTerm, loading, step, page, loadMoreBooks }) => {
+const Home = ({
+  list,
+  searchTerm,
+  loading,
+  step,
+  page,
+  loadMoreBooks,
+  lastItem
+}) => {
   return (
     <div>
       <Tabs items={TABS} />
@@ -18,6 +26,7 @@ const Home = ({ list, searchTerm, loading, step, page, loadMoreBooks }) => {
           books={list}
           loadMoreBooks={loadMoreBooks}
           step={step}
+          lastItem={lastItem}
           page={page}
         />
       </Box>
@@ -36,5 +45,6 @@ Home.propTypes = {
   loading: PropTypes.bool.isRequired,
   loadMoreBooks: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
-  page: PropTypes.number.isRequired
+  page: PropTypes.number.isRequired,
+  lastItem: PropTypes.bool.isRequired
 };

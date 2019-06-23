@@ -6,7 +6,15 @@ import SectionTitle from '../SectionTitle';
 import BookPreview from '../BookPreview';
 import { Container, ListContainer } from './styles';
 
-const DisplayList = ({ title, loading, loadMoreBooks, books, step, page }) => {
+const DisplayList = ({
+  title,
+  loading,
+  loadMoreBooks,
+  books,
+  step,
+  page,
+  lastItem
+}) => {
   if (loading) return <Loader />;
 
   const handleLoadMore = () => loadMoreBooks({ title, step, page });
@@ -19,14 +27,15 @@ const DisplayList = ({ title, loading, loadMoreBooks, books, step, page }) => {
           <InfiniteScroll
             hasMore
             dataLength={books.length}
-            next={handleLoadMore}
-            loader={<Loader />}
+            next={!lastItem ? handleLoadMore : undefined}
+            loader={lastItem ? null : <Loader />}
           >
             <ListContainer>
               {books.map(book => (
                 <BookPreview key={book.id} book={book} />
               ))}
             </ListContainer>
+            {lastItem && <p>Fim da busca</p>}
           </InfiniteScroll>
         </>
       ) : (
@@ -44,5 +53,6 @@ DisplayList.propTypes = {
   title: PropTypes.string.isRequired,
   loadMoreBooks: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
-  page: PropTypes.number.isRequired
+  page: PropTypes.number.isRequired,
+  lastItem: PropTypes.bool.isRequired
 };

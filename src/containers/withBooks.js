@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
   error: state.books.error,
   detail: state.books.detail,
   page: state.books.page,
-  step: state.books.step
+  step: state.books.step,
+  lastItem: state.books.lastItem
 });
 
 const mapDispatchToProps = dispatch =>

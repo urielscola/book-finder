@@ -1,5 +1,4 @@
 const parseBooks = book => {
-  console.log({ book });
   const { volumeInfo, saleInfo, selfLink } = book;
   return {
     id: book.id,
