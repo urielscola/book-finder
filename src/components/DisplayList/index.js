@@ -10,9 +10,11 @@ import { Container, ListContainer } from './styles';
 
 const DisplayList = ({
   searchTerm,
+  title,
   loading,
   loadMoreBooks,
   list,
+  books,
   step,
   page,
   lastItem,
@@ -20,20 +22,21 @@ const DisplayList = ({
 }) => {
   if (loading) return <Loader />;
   const handleLoadMore = () => loadMoreBooks({ searchTerm, step, page });
+  const items = books || list;
 
   return (
     <Container>
-      {list.length > 0 ? (
+      {items.length > 0 ? (
         <>
-          <SectionTitle title={`Resultados para ${searchTerm}`} />
+          <SectionTitle title={`Resultados para ${title || searchTerm}`} />
           <InfiniteScroll
             hasMore
-            dataLength={list.length}
+            dataLength={items.length}
             next={!lastItem ? handleLoadMore : undefined}
             loader={lastItem ? null : <Loader />}
           >
             <ListContainer>
-              {list.map(book => (
+              {items.map(book => (
                 <BookPreview
                   key={book.id}
                   book={book}
@@ -45,7 +48,7 @@ const DisplayList = ({
           </InfiniteScroll>
         </>
       ) : (
-        <SectionTitle title={`Nenhum resultado para ${searchTerm}`} />
+        <SectionTitle title={`Nenhum resultado para ${title || searchTerm}`} />
       )}
     </Container>
   );
@@ -59,6 +62,7 @@ export default compose(
 DisplayList.propTypes = {
   loading: PropTypes.bool.isRequired,
   list: PropTypes.array.isRequired,
+  books: PropTypes.array,
   searchTerm: PropTypes.string.isRequired,
   loadMoreBooks: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,

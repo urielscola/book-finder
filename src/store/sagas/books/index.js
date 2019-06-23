@@ -19,7 +19,6 @@ export function* getBooks({ payload }) {
 export function* getDetail({ payload }) {
   try {
     const { data } = yield call(BooksService.get, { id: payload });
-    console.log({ data });
     yield put(BooksActions.getBookDetailSuccess(data));
   } catch (err) {
     yield put(BooksActions.getBookDetailsFailure);

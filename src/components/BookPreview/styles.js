@@ -11,6 +11,11 @@ export const Container = styled.article`
 
   @media (min-width: 992px) {
     width: 15%;
+    margin-right: 6%;
+
+    &:nth-of-type(5n) {
+      margin-right: 0;
+    }
   }
 `;
 

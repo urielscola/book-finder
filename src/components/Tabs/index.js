@@ -8,7 +8,7 @@ const Tabs = ({ items }) => {
     <MobileBreakpoint>
       <Container>
         {items.map(({ to, label, icon }) => (
-          <TabItem key={label} to={to} activeClassName="active">
+          <TabItem key={label} to={to} exact activeClassName="active">
             {icon}
             {label}
           </TabItem>

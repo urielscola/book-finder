@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import Loader from '../Loader';
-import { withBooks } from '../../containers';
+import { withBooks, withFavorites } from '../../containers';
 import SectionTitle from '../SectionTitle';
 import { BookItemAuthors, BookItemSaleInfo } from '../BookItem';
 import ButtonLink from '../ButtonLink';
@@ -15,12 +15,26 @@ import {
   AddToFavorites
 } from './styles';
 
-const BookDetail = ({ detail, getBookDetail, bookId, loading }) => {
+const BookDetail = ({
+  detail,
+  getBookDetail,
+  bookId,
+  loading,
+  addFavorite,
+  removeFavorite,
+  favorites
+}) => {
   useEffect(() => {
     if (!detail) getBookDetail(bookId);
   }, [detail, bookId, getBookDetail]);
 
   if (loading || !detail) return <Loader />;
+  const isFavorite = favorites.filter(fav => fav.id === detail.id);
+  const onFavoriteClick = () => {
+    if (isFavorite.length) return removeFavorite(detail.id);
+    return addFavorite(detail);
+  };
+
   return (
     <Container>
       <BookDetailImage>
@@ -37,9 +51,13 @@ const BookDetail = ({ detail, getBookDetail, bookId, loading }) => {
           price={detail.price}
           salePrice={detail.salePrice}
         />
-        <AddToFavorites>
+        <AddToFavorites onClick={onFavoriteClick}>
           <HeartIcon size={20} />
-          <p>Adicionar aos favoritos</p>
+          <p>
+            {isFavorite.length
+              ? 'Remover dos favoritos'
+              : 'Adicionar aos favoritos'}
+          </p>
         </AddToFavorites>
         {detail.available && (
           <ButtonLink to={detail.link} label="COMPRAR" external />
@@ -55,13 +73,19 @@ const BookDetail = ({ detail, getBookDetail, bookId, loading }) => {
   );
 };
 
-export default compose(withBooks)(BookDetail);
+export default compose(
+  withBooks,
+  withFavorites
+)(BookDetail);
 
 BookDetail.propTypes = {
   loading: PropTypes.bool.isRequired,
   getBookDetail: PropTypes.func.isRequired,
   bookId: PropTypes.string.isRequired,
-  detail: PropTypes.object
+  detail: PropTypes.object,
+  addFavorite: PropTypes.func.isRequired,
+  removeFavorite: PropTypes.func.isRequired,
+  favorites: PropTypes.array.isRequired
 };
 
 BookDetail.defaultProps = {
