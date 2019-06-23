@@ -14,13 +14,13 @@ export const Container = styled.button`
     background-color: #5075f9;
   }
 
-  ${({ orange }) =>
-    orange &&
+  ${({ red }) =>
+    red &&
     css`
-      background-color: ${({ theme }) => theme.orange};
+      background-color: ${({ theme }) => theme.red};
 
       &:hover {
-        background-color: #f7ae67;
+        background-color: #f52e29;
       }
     `}
 `;

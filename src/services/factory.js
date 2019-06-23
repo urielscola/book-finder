@@ -14,13 +14,12 @@ export default ({ instance, config, resourceName }) => ({
       headers
     });
   },
-  get: (id, data) => {
-    const query = data ? buildQueryString(data) : '';
+  get: ({ id }) => {
     const { headers } = config();
 
     return instance({
       method: 'GET',
-      url: `${BASE_API_URL}${resourceName}/${id}${query}`,
+      url: `${BASE_API_URL}${resourceName}/${id}`,
       headers
     });
   }

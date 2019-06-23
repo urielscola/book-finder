@@ -25,7 +25,7 @@ export const TabItem = styled(NavLink)`
 
   &.active {
     font-weight: 700;
-    background-color: ${({ theme }) => theme.orange};
-    border-bottom: 4px solid #de8938;
+    background-color: ${({ theme }) => theme.red};
+    border-bottom: 4px solid #f52e29;
   }
 `;

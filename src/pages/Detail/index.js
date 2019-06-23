@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { withBooks } from '../../containers';
 import Tabs from '../../components/Tabs';
 import Sidebar from '../../components/Sidebar';
+import BookDetail from '../../components/BookDetail';
 import { PageContainer, Box } from '../../components/Grid';
 import { TABS } from '../../constants/nav';
 
@@ -12,7 +13,9 @@ const Detail = props => {
     <PageContainer>
       <Sidebar />
       <Tabs items={TABS} />
-      <Box />
+      <Box>
+        <BookDetail bookId={props.match.params.bookId} />
+      </Box>
     </PageContainer>
   );
 };

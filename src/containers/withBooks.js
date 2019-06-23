@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as BooksActions } from '../store/ducks/books';
 
-import { getList } from '../store/ducks/books/selectors';
+import { getList, getDetail } from '../store/ducks/books/selectors';
 
 const mapStateToProps = state => ({
   list: getList(state),
   loading: state.books.loading,
   error: state.books.error,
-  detail: state.books.detail,
+  detail: getDetail(state),
   page: state.books.page,
   step: state.books.step,
   lastItem: state.books.lastItem

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Author } from './styles';
 
-const BookPreviewAuthors = ({ authors }) => {
+const BookItemAuthors = ({ authors }) => {
   return (
     <Author>
       {authors.length > 1 ? (
@@ -14,8 +14,8 @@ const BookPreviewAuthors = ({ authors }) => {
   );
 };
 
-export default BookPreviewAuthors;
+export default BookItemAuthors;
 
-BookPreviewAuthors.propTypes = {
+BookItemAuthors.propTypes = {
   authors: PropTypes.array.isRequired
 };

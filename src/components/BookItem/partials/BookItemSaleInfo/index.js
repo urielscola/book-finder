@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Container, Price, Unavailable } from './styles';
 import { toCurrency } from '../../../../helpers/Strings';
 
-const BookPreviewSalesInfo = ({ price, salePrice, available }) => {
+const BookItemSalesInfo = ({ price, salePrice, available }) => {
   return (
     <Container>
       {available ? (
@@ -24,9 +24,9 @@ const BookPreviewSalesInfo = ({ price, salePrice, available }) => {
   );
 };
 
-export default BookPreviewSalesInfo;
+export default BookItemSalesInfo;
 
-BookPreviewSalesInfo.propTypes = {
+BookItemSalesInfo.propTypes = {
   price: PropTypes.number,
   salePrice: PropTypes.number,
   available: PropTypes.bool.isRequired

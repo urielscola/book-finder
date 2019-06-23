@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import BookPreviewAuthors from './partials/BookPreviewAuthors';
-import BookPreviewSaleInfo from './partials/BookPreviewSaleInfo';
+import { BookItemAuthors, BookItemSaleInfo } from '../BookItem';
 import {
   Container,
   BookPrewiewImage,
@@ -11,9 +10,9 @@ import {
 } from './styles';
 import { truncate } from '../../helpers/Strings';
 
-const BookPreview = ({ book }) => {
+const BookPreview = ({ book, setBookDetail }) => {
   return (
-    <Container>
+    <Container onClick={() => setBookDetail(book)}>
       <Link to={`/books/${book.id}`}>
         <BookPrewiewImage>
           <figure>
@@ -22,8 +21,8 @@ const BookPreview = ({ book }) => {
         </BookPrewiewImage>
         <BookPrewiewInfo>
           <BookPrewiewTitle>{truncate(book.title, 15)}</BookPrewiewTitle>
-          <BookPreviewAuthors authors={book.authors} />
-          <BookPreviewSaleInfo
+          <BookItemAuthors authors={book.authors} />
+          <BookItemSaleInfo
             available={book.available}
             price={book.price}
             salePrice={book.salePrice}
@@ -37,6 +36,7 @@ const BookPreview = ({ book }) => {
 export default BookPreview;
 
 BookPreview.propTypes = {
+  setBookDetail: PropTypes.func.isRequired,
   book: PropTypes.shape({
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
