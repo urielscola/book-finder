@@ -14,7 +14,7 @@ const Favorites = ({ favorites }) => {
       <Sidebar />
       <Tabs items={TABS} />
       <Box>
-        <DisplayList books={favorites} title="Seus favoritos" />
+        <DisplayList books={favorites} title="Seus favoritos" preventLoader={true}/>
       </Box>
     </PageContainer>
   );

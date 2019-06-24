@@ -1,4 +1,4 @@
-const parseBooks = book => {
+export const parseBooks = book => {
   if (!book || !book.volumeInfo) return book;
   const { volumeInfo, saleInfo } = book;
   return {

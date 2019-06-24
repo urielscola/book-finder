@@ -18,7 +18,8 @@ const DisplayList = ({
   step,
   page,
   lastItem,
-  setBookDetail
+  setBookDetail,
+  preventLoader
 }) => {
   if (loading) return <Loader />;
   const handleLoadMore = () => loadMoreBooks({ searchTerm, step, page });
@@ -33,7 +34,7 @@ const DisplayList = ({
             hasMore
             dataLength={items.length}
             next={!lastItem ? handleLoadMore : undefined}
-            loader={lastItem ? null : <Loader />}
+            loader={lastItem || preventLoader ? null : <Loader />}
           >
             <ListContainer>
               {items.map(book => (
@@ -67,6 +68,7 @@ DisplayList.propTypes = {
   loadMoreBooks: PropTypes.func.isRequired,
   step: PropTypes.number.isRequired,
   page: PropTypes.number.isRequired,
+  preventLoader: PropTypes.bool,
   lastItem: PropTypes.bool.isRequired,
   setBookDetail: PropTypes.func.isRequired
 };
