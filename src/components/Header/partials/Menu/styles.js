@@ -20,7 +20,13 @@ export const Container = styled.aside`
 
       color: ${({ theme }) => theme.fontSecundary};
       a {
+        width: 100%;
+        display: block;
         color: ${({ theme }) => theme.fontSecundary};
+
+        &.active {
+          text-decoration: underline;
+        }
       }
     }
   }
