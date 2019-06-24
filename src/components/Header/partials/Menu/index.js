@@ -9,7 +9,9 @@ const Menu = ({ categories, isOpen, onClick }) => {
       <Container isOpen={isOpen}>
         <nav>
           <ul>
-            <li>CATEGORIAS</li>
+            <li>
+              <strong>CATEGORIAS</strong>
+            </li>
             {categories.map(category => (
               <li key={category}>
                 <NavLink exact to={`/category/${category.toLowerCase()}`}>

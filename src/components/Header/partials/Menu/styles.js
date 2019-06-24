@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/macro';
 
 export const Container = styled.aside`
-  position: fixed;
+  position: absolute;
   transition: 250ms ease-in-out;
   top: 133px;
   left: 0;
@@ -17,6 +17,7 @@ export const Container = styled.aside`
     padding: 25px;
     li {
       padding: 12px 0;
+
       color: ${({ theme }) => theme.fontSecundary};
       a {
         color: ${({ theme }) => theme.fontSecundary};
@@ -36,7 +37,7 @@ export const Offset = styled.div`
   transition: 250ms ease-in-out;
   opacity: 0;
   visibility: hidden;
-  position: fixed;
+  position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
   top: 133px;
