@@ -8,8 +8,7 @@ export const Types = {
   GET_BOOK_DETAIL: '@books/GET_BOOK_DETAIL',
   GET_BOOK_DETAIL_SUCCESS: '@books/GET_BOOK_DETAIL_SUCCESS',
   GET_BOOK_DETAIL_FAILURE: '@books/GET_BOOK_DETAIL_FAILURE',
-  SET_BOOK_DETAIL: '@books/SET_BOOK_DETAIL',
-  REMOVE_BOOK_DETAIL: '@books/REMOVE_BOOK_DETAIL'
+  SET_BOOK_DETAIL: '@books/SET_BOOK_DETAIL'
 };
 
 export const Creators = {
@@ -34,7 +33,7 @@ export const Creators = {
   setBookDetail: payload => ({ type: Types.SET_BOOK_DETAIL, payload })
 };
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   list: [],
   page: 1,
   step: 10,

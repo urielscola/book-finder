@@ -12,7 +12,7 @@ export const Creators = {
   setFavorites: payload => ({ type: Types.SET_FAVORITES, payload })
 };
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   list: []
 };
 
