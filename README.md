@@ -19,6 +19,8 @@ Testes unitários feitos com a ferramenta Jest.
 ```
 yarn deploy
 ```
+É necessário realizar login no surge pelo CLI antes, com o comando `surge login`.
+É possível alterar o domínio no package.json.
 
 # CD/CI
 

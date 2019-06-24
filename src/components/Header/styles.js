@@ -13,15 +13,21 @@ export const Container = styled.header`
   }
 `;
 
-export const Logo = styled.h1`
+export const TopMenuContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
   margin-bottom: 15px;
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
+`;
+
+export const Logo = styled.h1`
   img {
     width: 200px;
     display: block;
     margin: auto;
-  }
-
-  @media (min-width: 992px) {
-    margin-bottom: 0;
   }
 `;

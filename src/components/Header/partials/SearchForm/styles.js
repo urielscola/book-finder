@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
 
   @media (min-width: 992px) {
-    max-width: 700px;
+    max-width: 600px;
   }
 `;
 
@@ -17,8 +17,8 @@ export const Form = styled.form`
   @media (min-width: 992px) {
     justify-content: flex-end;
 
-    > button {
-      margin-right: 10px;
+    > a {
+      margin-left: 10px;
     }
   }
 `;
@@ -30,7 +30,16 @@ export const SubmitButton = styled.button`
   width: 47px;
   border-radius: 0px 8px 8px 0px;
   padding: 0;
+  transition: 250ms ease-in-out;
   color: ${({ theme }) => theme.white};
+
+  &:hover {
+    background-color: #5075f9;
+  }
+
+  @media (min-width: 992px) {
+    width: 100px;
+  }
 `;
 
 export const Input = styled.input`

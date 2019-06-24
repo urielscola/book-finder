@@ -20,6 +20,7 @@ const SearchForm = ({ placeholder, onSubmit, onChange, value }) => {
           <SearchIcon size={20} />
         </SubmitButton>
         <DesktopBreakpoint>
+          <ButtonLink to="/" label="Livros" />
           <ButtonLink red to="/favorites" label="Favoritos" />
         </DesktopBreakpoint>
       </Form>
